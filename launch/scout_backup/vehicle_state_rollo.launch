@@ -1,0 +1,9 @@
+<launch>
+  <arg name="robot_namespace" default="rollo"/>
+
+  <param name="capability_group" value="RobotState"/>
+
+  <include file="$(find telemetry_tools)/launch/telemetry_rollo.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+  </include>
+</launch>

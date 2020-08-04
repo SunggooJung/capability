@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <param name="capability_group" value="Trajectory"/>
+  <include file="$(find trajectory_generator)/launch/simulation_multi.launch" />  
+</launch>

@@ -1,0 +1,26 @@
+<!-- -->
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="false"/>
+
+  <param name="capability_group" value="Planner"/>
+
+  <include file="$(find local_map)/launch/local_map.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find distance_map)/launch/distance_map.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find local_path)/launch/local_path.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find astar)/launch/astar.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+</launch>

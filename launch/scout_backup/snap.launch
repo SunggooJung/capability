@@ -1,0 +1,6 @@
+<!-- -->
+<launch>
+
+  <machine name="linaro" address="192.168.2.10" env-loader="/opt/ros/kinetic/env.sh" user="linaro" password="linaro"/>
+  <node machine="linaro" name="snap_vislam_node" pkg="snap_ros_examples" type="snap_vislam_node" />
+</launch>

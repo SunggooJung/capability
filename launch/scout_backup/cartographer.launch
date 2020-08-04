@@ -1,0 +1,31 @@
+<!-- -->
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="true"/>
+
+  <param name="capability_group" value="Cartographer"/>
+
+  <!-- === Sensor On === -->
+
+  <include file="$(find teraranger)/launch/evo.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find imu_3dm_gx4)/launch/imu.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <!-- === CartoGrapher On === -->
+
+  <include file="$(find cartographer_ros)/launch/stix_rplidar.launch">
+  <!--include file="$(find cartographer_ros)/launch/stix.launch"-->
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find tf_listener)/launch/tf.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>  
+  </include>
+
+</launch>

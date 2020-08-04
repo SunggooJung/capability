@@ -1,0 +1,15 @@
+%YAML 1.1
+---
+spec_version: 1
+spec_type: provider
+
+name: mobility_service_fly
+description: >
+  Implements flying-only mobility service for Scout
+
+implements: capability_interface/MobilityService
+launch_file: ../launch/mobilty_service_fly.launch
+
+depends_on:
+  'capability_interface/FlightStackMAVROS':
+    provider: 'capability_scout/flight_stack_mavros_px4'

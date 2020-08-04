@@ -1,0 +1,11 @@
+%YAML 1.1
+---
+spec_version: 1
+spec_type: provider
+
+name: robot_state_publisher
+description: >
+    Publish robot state for Scout model.
+    
+implements: capability_interface/RobotStatePublisher
+launch_file: ../launch/robot_state_publisher.launch

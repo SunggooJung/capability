@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="false"/>
+
+  <param name="capability_group" value="Record"/>
+  <include file="$(find rosbag_topic)/launch/rosbag_image.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+</launch>

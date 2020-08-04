@@ -1,0 +1,15 @@
+session_name: mobility
+windows:
+- window_name: mobility
+  layout: tiled
+  panes:
+  - screen -x $(screen -ls | grep controller | cut -f2)
+  - screen -x $(screen -ls | grep local_planner | cut -f2)
+  - screen -x $(screen -ls | grep mobility_manager | cut -f2)
+  - rostopic echo $HOSTNAME/mavros/state
+  - rostopic echo $HOSTNAME/mavros/local_position/pose
+  - rostopic echo $HOSTNAME/command/setpoint_raw/local_path
+  - rostopic echo $HOSTNAME/command/setpoint_raw/local
+  - shell_command:
+    - roscd flightstack_px4/scripts
+    - read && ./reboot_px4.sh

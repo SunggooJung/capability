@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>capability_multi</name>
+  <version>0.0.0</version>
+  <description>Capability implementation for multi UAVs</description>
+
+  <maintainer email="sunggoo@etri.re.kr">sunggooJung</maintainer>  
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>capabilities</exec_depend>
+
+  <export>
+    <!-- Sort alphabetically -->
+    <capability_provider>providers/flight_stack_mavros_px4.yaml</capability_provider>
+    <!--capability_provider>providers/mobility_service_fly.yaml</capability_provider-->
+    <capability_provider>providers/robot_state_publisher.yaml</capability_provider>
+  </export>
+</package>

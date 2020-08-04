@@ -1,0 +1,14 @@
+<!-- -->
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="false"/>
+
+  <param name="capability_group" value="Emergency_stop"/>
+
+  <include file="$(find operator_kill)/launch/operator_kill.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+  </include>
+
+</launch>

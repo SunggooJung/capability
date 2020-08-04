@@ -1,0 +1,26 @@
+<!-- -->
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="true"/>
+
+  <param name="capability_group" value="Artifacts"/>
+
+  <!-- === Sensor On === -->
+
+  <include file="$(find tensorflow_object_detector)/launch/detection.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find usb_cam)/launch/usb_cam.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+
+  <include file="$(find artifact_localization)/launch/artifact.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+
+</launch>

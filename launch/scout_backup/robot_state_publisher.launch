@@ -1,0 +1,19 @@
+<launch>
+  <arg name="robot_namespace"/>
+
+  <param name="capability_group" value="Robot"/>
+
+  <!--include file="$(find scout_description)/launch/description.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+  </include-->
+
+  <param name="robot_description"
+    textfile="$(find cartographer_ros)/urdf/gazebo.urdf" />
+
+  <group ns="$(arg robot_namespace)">
+    <node pkg="robot_state_publisher"
+          type="robot_state_publisher"
+          name="robot_state_publisher_node"/>
+  </group>
+  
+</launch>

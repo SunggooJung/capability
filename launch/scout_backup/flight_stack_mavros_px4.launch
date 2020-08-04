@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- -->
+<launch>
+  <arg name="robot_namespace" default="scout" />
+
+  <param name="capability_group" value="FlightStack"/>
+
+  <include file="$(find mavros_control)/launch/node.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+    <!--arg name="fcu_url" value="/dev/ttyTHS1:57600"/-->
+  </include>
+
+  <include file="$(find offboard_drone)/launch/offboard.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find geofence)/launch/geofence.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find mobility_planner)/launch/mobility_planner.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find mobility_scout)/launch/mobility_manager_fly.launch"/>
+
+  <include file="$(find emergency_kill)/launch/emergency_kill.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find rosbag_topic)/launch/rosbag_state.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find rosbag_topic)/launch/rosbag_slam.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+</launch>

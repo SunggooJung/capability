@@ -1,0 +1,11 @@
+%YAML 1.1
+---
+spec_version: 1
+spec_type: provider
+
+name: flight_stack_mavros_px4
+description: Launch flight stack for PX4.
+
+implements: capability_interface/FlightStackMAVROS
+launch_file: ../launch/flight_stack_mavros_px4.launch
+

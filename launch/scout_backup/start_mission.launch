@@ -1,0 +1,18 @@
+<!-- -->
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="simulation"               default="false"/>
+
+  <param name="capability_group" value="MissionStart"/>
+
+  <include file="$(find irm_planner)/launch/irm_planner.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+  </include>
+
+  <include file="$(find hw_interface)/launch/hw_interface.launch">
+    <arg name="robot_namespace" value="$(arg robot_namespace)"/>
+  </include>
+
+</launch>

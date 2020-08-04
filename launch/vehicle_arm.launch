@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <param name="capability_group" value="Arm"/>
+  <include file="$(find offboard_control)/launch/offboard_multi.launch" />  
+</launch>

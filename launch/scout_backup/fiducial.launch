@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- === GENERAL ARGUMENTS === -->
+  <arg name="robot_namespace"          default="scout"/>
+  <arg name="ops_env" 				   default="safety_research"/>
+
+  <param name="capability_group" value="FiducialCalibration"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="link_broadcaster" args="0.2 0 -0.06 -1.57 0 -1.57 $(arg robot_namespace)/base_link $(arg robot_namespace)/camera_color_optical_frame 10"/>
+
+  <!-- === Fiducial Calibration On === -->
+  <include file="$(find localizer_fiducial_calibration)/launch/apriltag_detection.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+    <arg name="ops_env"			value="$(arg ops_env)"/>
+  </include>
+
+  <include file="$(find localizer_fiducial_calibration)/launch/localizer_fiducial_calibration.launch">
+    <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+    <arg name="ops_env"			value="$(arg ops_env)"/>
+  </include>
+
+  <include file="$(find tf_map)/launch/tf_map.launch">
+  </include>
+</launch>
